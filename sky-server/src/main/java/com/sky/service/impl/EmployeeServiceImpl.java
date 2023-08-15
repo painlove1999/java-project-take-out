@@ -110,4 +110,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     }
 
+    @Override
+    public void StopOrstart(Integer status, Long id) {
+        Employee employee=Employee.builder().id(id).status(status).build();
+        employeeMapperPlus.updateById(employee);
+    }
+
 }
