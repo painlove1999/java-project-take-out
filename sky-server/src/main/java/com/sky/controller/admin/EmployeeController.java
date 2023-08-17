@@ -100,6 +100,21 @@ public class EmployeeController {
         return Result.success();
     }
 
+    @GetMapping("/{id}")
+    @ApiOperation("根据id查看员工")
+    public Result<Employee> GetbyId (@PathVariable  Long id){
+        Employee  employee = employeeService.GetbyId(id);
+        return Result.success(employee);
+    }
+
+    @PutMapping
+    @ApiOperation("更新员工信息")
+    public Result Updateemployee (@RequestBody EmployeeDTO employeeDTO){
+        employeeService.update(employeeDTO);
+        return Result.success();
+
+    }
+
 
 
 
